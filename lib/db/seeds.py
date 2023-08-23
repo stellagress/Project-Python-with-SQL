@@ -28,6 +28,6 @@ inventory = [
 session.bulk_save_objects(inventory)
 session.commit()
 
-# print(inventory)
+print(inventory)
 
 print("Testing code")

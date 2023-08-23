@@ -13,10 +13,10 @@ class Salon(Base):
     quantity = Column(Integer)
 
 
-    # def __repr__(self):
-    #     return f"\n<Salon "\
-    #     + f"id={self.id}," \
-    #     + f"product={self.product}," \
-    #     + f"price={self.price}," \
-    #     + f"quantity={self.quantity}," 
+    def __repr__(self):
+        return f"\n<Salon "\
+        + f"id={self.id}," \
+        + f"product={self.product}," \
+        + f"price={self.price}," \
+        + f"quantity={self.quantity}," 
       

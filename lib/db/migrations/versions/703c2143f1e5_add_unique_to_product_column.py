@@ -1,8 +1,8 @@
-"""create inventory
+"""add unique to product column
 
-Revision ID: f04432281709
+Revision ID: 703c2143f1e5
 Revises: 
-Create Date: 2023-08-22 23:41:46.154490
+Create Date: 2023-08-23 01:51:41.226595
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'f04432281709'
+revision: str = '703c2143f1e5'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -23,9 +23,10 @@ def upgrade() -> None:
     op.create_table('inventory',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('product', sa.String(), nullable=True),
-    sa.Column('price', sa.Numeric(precision=6, scale=2), nullable=True),
+    sa.Column('price', sa.String(), nullable=True),
     sa.Column('quantity', sa.Integer(), nullable=True),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('product')
     )
     # ### end Alembic commands ###
 

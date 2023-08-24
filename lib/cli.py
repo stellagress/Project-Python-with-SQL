@@ -2,12 +2,14 @@ from db.models import Salon
 from simple_term_menu import TerminalMenu
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from prettycli import red
 
 
 
 engine = create_engine('sqlite:///db/data.db')
 Session = sessionmaker(bind=engine)
 session = Session()
+
 
 
 
@@ -21,7 +23,7 @@ def start():
     # for _ in range(3):
     print("\n")
 
-    print("-----------------MARILYN'S NAIL SALON RESTRICTED PORTAL-----------------")
+    print("-----------------MARILYN'S NAIL SALON - RESTRICTED PORTAL-----------------")
 
     print("\n")
 
@@ -31,6 +33,9 @@ def start():
     
     if menu_entry == 0:
         view_current_inventory()
+    elif menu_entry == 1:
+        update_inventory()
+        
 
 
 def view_current_inventory():
@@ -38,8 +43,68 @@ def view_current_inventory():
     for item in inventory_items:
         print(f"Product: {item.product}, Price: {item.price}, Quantity: {item.quantity}")
 
+
+
+
+def update_inventory():
+    update_inventory_input_1 = input("Would you like to add or delete inventory? ")
+    
+    if update_inventory_input_1 == "add":
+        product_name = input("Enter the name of the product to add: ")
+        salon = session.query(Salon).filter_by(product=product_name).first()
+
+        if salon:
+            print(f"Current quantity for {product_name}: {salon.quantity}")
+            update_inventory_input_add_3 = int(input(f"How many units would you like to add? "))
+            salon.quantity += update_inventory_input_add_3
+            session.commit()
+            print(f"Updated quantity for {product_name}: {salon.quantity}")
+        else:
+            print(f"Product {product_name} not found in inventory.")
+
+    elif update_inventory_input_1 == "delete":
+        product_name = input("Enter the name of the product to delete: ")
+        salon = session.query(Salon).filter_by(product=product_name).first()
+
+        if salon:
+            print(f"Current quantity for {product_name}: {salon.quantity}")
+            update_inventory_input_add_3 = int(input(f"How many units would you like to delete? "))
+            salon.quantity -= update_inventory_input_add_3
+            session.commit()
+            print(f"Updated quantity for {product_name}: {salon.quantity}")
+        else:
+            print(f"Product {product_name} not found in inventory.")
+    else:
+        print(red("invalid selection"))
+
+
+# def update_inventory():
+#     update_inventory_input_1 = input("Would you like to add or delete inventory? ")
+#     if update_inventory_input_1 == "add":
+#         print(session.query(Salon.product).all())
+#         update_inventory_input_add_1 = input("Is the inventory to add in the list above? y/n ")
+#         if update_inventory_input_add_1 == "y":
+#             update_inventory_input_add_2 = input("Which item would you like to add inventory? ")
+#             update_inventory_input_add_3 = input(f"You selected: {update_inventory_input_add_2}. How many units would you like to add? ")
+#             print("bla")
+
+
+        
+
+
+#     elif update_inventory_input_1 == "delete":
+#         print(Salon.quantity[update_inventory_input_add_2])
+
+
+
+
+
+
+
 if __name__ == "__main__":
+    
     start()
+  
 
 
 

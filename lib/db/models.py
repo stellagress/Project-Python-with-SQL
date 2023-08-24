@@ -1,5 +1,5 @@
 from sqlalchemy.orm import declarative_base, relationship
-from sqlalchemy import Column, Integer, String, ForeignKey, Boolean
+from sqlalchemy import Column, Integer, String, ForeignKey
 
 Base = declarative_base()
 
@@ -12,7 +12,7 @@ class Salon(Base):
     price = Column(String)
     quantity = Column(Integer)
 
-    nail_types = relationship("Nail_Type", backref="salon")
+    nail_polishes = relationship("Nail_Polish", backref="salon")
 
 
     def __repr__(self):
@@ -20,26 +20,31 @@ class Salon(Base):
         + f"id={self.id}," \
         + f"product={self.product}," \
         + f"price={self.price}," \
-        + f"quantity={self.quantity}," 
+        + f"quantity={self.quantity}"
+        + ">" 
 
 
-class Nail_Type(Base):
-    __tablename__ = "nail_types"
+class Nail_Polish(Base):
+    __tablename__ = "nail_polishes"
 
     id = Column(Integer, primary_key=True)
-    white_tip = Column(Boolean)
-    shape = Column(String)
-    size = Column(Integer)
+    polishType = Column(String)
+    brand = Column(String)
+    color = Column(String)
+    price = Column(String)
+
 
     salon_id = Column(Integer, ForeignKey("inventory.id"))
 
 
     def __repr__(self):
-        return f"\n<Nail_Type" \
+        return f"\n<Nail_Polish" \
         + f"id={self.id}," \
-        + f"white_tip={self.white_tip}," \
-        + f"shape={self.shape}," \
-        + f"size={self.size}"
+        + f"polishType={self.polishType}," \
+        + f"brand={self.brand}," \
+        + f"color={self.color}," \
+        + f"price={self.price}" \
+        + ">"
       
 
 

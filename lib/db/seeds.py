@@ -35,30 +35,30 @@ salon = session.query(Salon).filter_by(product="nail polish").first()
 
 nail_polishes = [
 
-    # Acrylic - Colorama
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Black", price="$10", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Bronze Shimmer", price="$15", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Burgundy", price="$3", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Classic Beige", price="$3", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Emerald Green", price="$12", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="French Manicure", price="$3", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Glitter", price="$10", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Gray", price="$12", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Lilac", price="$3", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Mauve", price="$20", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Mint Green", price="$1", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Nude", price="$12", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Onyx Black", price="$12", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Pastel Lavender", price="$12", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Pink", price="$5", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Red", price="$10", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Rose Gold Metallic", price="$1", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Sapphire Blue", price="$3", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Silver Metallic", price="$20", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Taupe", price="$1", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Teal", price="$1", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="Vibrant Orange", price="$15", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Colorama", color="White", price="$10", salon_id=salon.id),
+    # Regular - Colorama
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Black", price="$10", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Bronze Shimmer", price="$15", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Burgundy", price="$3", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Classic Beige", price="$3", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Emerald Green", price="$12", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="French Manicure", price="$3", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Glitter", price="$10", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Gray", price="$12", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Lilac", price="$3", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Mauve", price="$20", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Mint Green", price="$1", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Nude", price="$12", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Onyx Black", price="$12", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Pastel Lavender", price="$12", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Pink", price="$5", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Red", price="$10", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Rose Gold Metallic", price="$1", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Sapphire Blue", price="$3", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Silver Metallic", price="$20", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Taupe", price="$1", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Teal", price="$1", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="Vibrant Orange", price="$15", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Colorama", color="White", price="$10", salon_id=salon.id),
 
 
     # Gel - Colorama
@@ -84,13 +84,13 @@ nail_polishes = [
     Nail_Polish(polishType="Gel", brand="Colorama", color="Vibrant Orange", price="$15", salon_id=salon.id),
     Nail_Polish(polishType="Gel", brand="Colorama", color="White", price="$10", salon_id=salon.id),
 
-    # Acrylic - Impala
-    Nail_Polish(polishType="Acrylic", brand="Impala", color="Amethyst Purple", price="$12", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Impala", color="Baby Blue", price="$1", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Impala", color="Gray", price="$1", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Impala", color="Lilac", price="$5", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Impala", color="Taupe", price="$12", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Impala", color="White", price="$12", salon_id=salon.id),
+    # Regular - Impala
+    Nail_Polish(polishType="Regular", brand="Impala", color="Amethyst Purple", price="$12", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Impala", color="Baby Blue", price="$1", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Impala", color="Gray", price="$1", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Impala", color="Lilac", price="$5", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Impala", color="Taupe", price="$12", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Impala", color="White", price="$12", salon_id=salon.id),
 
 
     # Gel - Impala
@@ -123,15 +123,15 @@ nail_polishes = [
     Nail_Polish(polishType="Gel", brand="Impala", color="Taupe", price="$12", salon_id=salon.id),
     Nail_Polish(polishType="Gel", brand="Impala", color="White", price="$12", salon_id=salon.id),
 
-    # Acrylic - Risque
-    Nail_Polish(polishType="Acrylic", brand="Risque", color="Coral", price="$15", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Risque", color="Taupe", price="$12", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Risque", color="Silver Metallic", price="$1", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Risque", color="Red", price="$5", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Risque", color="Teal", price="$15", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Risque", color="Cherry Red", price="$10", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Risque", color="Nude", price="$10", salon_id=salon.id),
-    Nail_Polish(polishType="Acrylic", brand="Risque", color="Taupe", price="$10", salon_id=salon.id),
+    # Regular - Risque
+    Nail_Polish(polishType="Regular", brand="Risque", color="Coral", price="$15", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Risque", color="Taupe", price="$12", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Risque", color="Silver Metallic", price="$1", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Risque", color="Red", price="$5", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Risque", color="Teal", price="$15", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Risque", color="Cherry Red", price="$10", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Risque", color="Nude", price="$10", salon_id=salon.id),
+    Nail_Polish(polishType="Regular", brand="Risque", color="Taupe", price="$10", salon_id=salon.id),
 
     # Gel - Risque
     Nail_Polish(polishType="Gel", brand="Risque", color="Amethyst Purple", price="$1", salon_id=salon.id),
@@ -226,7 +226,7 @@ import ipdb; ipdb.set_trace()
 
 
 
-# polish_types = ["Acrylic", "Gel"]
+# polish_types = ["Regular", "Gel"]
 # brands = ["Risque", "Colorama", "Impala"]
 # colors = [ 
 #     "Nude",

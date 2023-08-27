@@ -23,7 +23,7 @@ def start():
     # for _ in range(3):
     print("\n")
 
-    print("-----------------MARILYN'S NAIL SALON - RESTRICTED PORTAL-----------------")
+    print("----------------- MARILYN'S NAIL SALON - RESTRICTED PORTAL-----------------")
 
     print("\n")
 
@@ -41,7 +41,7 @@ def start():
 def view_current_inventory():
     inventory_items = session.query(Salon).all()
     for item in inventory_items:
-        print(f"Product: {item.product}, Price: {item.price}, Quantity: {item.quantity}")
+        print(f"Product: {item.product} | Price: {item.price} | Quantity: {item.quantity}")
 
 
 
@@ -65,6 +65,8 @@ def update_inventory():
             print(f"Product {product_name} not found in inventory.")
 
     elif update_inventory_input_1 == "delete":
+        products = session.query(Salon.product).all()
+        print("\n".join([f"{product[0]}" for product in products]))
         product_name = input("Enter the name of the product to delete: ")
         salon = session.query(Salon).filter_by(product=product_name).first()
 

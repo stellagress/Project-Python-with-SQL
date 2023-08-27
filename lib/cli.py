@@ -50,6 +50,8 @@ def update_inventory():
     update_inventory_input_1 = input("Would you like to add or delete inventory? ")
     
     if update_inventory_input_1 == "add":
+        products = session.query(Salon.product).all()
+        print("\n".join([f"{product[0]}" for product in products]))
         product_name = input("Enter the name of the product to add: ")
         salon = session.query(Salon).filter_by(product=product_name).first()
 

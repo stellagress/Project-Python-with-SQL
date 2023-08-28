@@ -199,12 +199,12 @@ nail_polishes = [
 session.bulk_save_objects(nail_polishes)
 
 
-# place_orders = [
-#     Place_Order(product_id=1, quantity=5),
-#     Place_Order(product_id=2, quantity=3),
-# ]
+place_orders = [
+    Place_Order(product_id=1, quantity=5),
+    Place_Order(product_id=2, quantity=3),
+]
 
-# session.bulk_save_objects(place_orders)
+session.bulk_save_objects(place_orders)
 session.commit()
 
 

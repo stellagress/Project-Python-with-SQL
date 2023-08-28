@@ -3,7 +3,7 @@ from simple_term_menu import TerminalMenu
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from prettycli import red
-import random
+import random, datetime
 
 
 
@@ -104,11 +104,13 @@ def place_order():
             letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             digits = "0123456789"
             order_number = ''.join(random.choice(letters) for _ in range(3)) + ''.join(random.choice(digits) for _ in range(5))
-            print(f"Order {order_number} placed")
+            # print(f"Order {order_number} placed")
+            current_datetime = datetime.datetime.now()
+            print(f"Order {order_number} placed on {current_datetime.strftime('%Y-%m-%d %H:%M')}")
 
 
             # Create a new Place_Order instance and add it to the database
-            new_order = Place_Order(product_id=salon.id, quantity=quantity, order_number=order_number)
+            new_order = Place_Order(product_id=salon.id, quantity=quantity, order_number=order_number, date_order_placed=current_datetime)
             session.add(new_order)
             session.commit()
             print("Order saved to the database.")

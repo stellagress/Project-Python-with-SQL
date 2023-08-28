@@ -200,8 +200,8 @@ session.bulk_save_objects(nail_polishes)
 
 
 place_orders = [
-    Place_Order(product_id=1, quantity=5, order_number='AHL98712'),
-    Place_Order(product_id=2, quantity=3, order_number='EYU85263'),
+    Place_Order(product_id=1, quantity=5, order_number='AHL98712', date_order_placed='placeholder'),
+    Place_Order(product_id=2, quantity=3, order_number='EYU85263', date_order_placed='placeholder'),
 ]
 
 session.bulk_save_objects(place_orders)

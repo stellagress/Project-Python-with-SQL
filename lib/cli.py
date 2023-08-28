@@ -1,4 +1,4 @@
-from db.models import Salon
+from db.models import Salon, Nail_Polish
 from simple_term_menu import TerminalMenu
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -27,7 +27,7 @@ def start():
 
     print("\n")
 
-    options = ["1. View Current Inventory", "2. Update Inventory", "3. SOS order", "4. Exit"]
+    options = ["1. View Current Inventory", "2. Update Inventory", "3. Place order", "4. Exit"]
     terminal_menu = TerminalMenu(options)
     menu_entry = terminal_menu.show()
     
@@ -35,6 +35,8 @@ def start():
         view_current_inventory()
     elif menu_entry == 1:
         update_inventory()
+    elif menu_entry == 2:
+        place_order()
         
 
 
@@ -82,6 +84,18 @@ def update_inventory():
         print(red("invalid selection"))
 
 
+
+def place_order():
+    print("placing order")
+
+
+
+if __name__ == "__main__":
+    
+    start()
+
+
+
 # def update_inventory():
 #     update_inventory_input_1 = input("Would you like to add or delete inventory? ")
 #     if update_inventory_input_1 == "add":
@@ -99,15 +113,6 @@ def update_inventory():
 #     elif update_inventory_input_1 == "delete":
 #         print(Salon.quantity[update_inventory_input_add_2])
 
-
-
-
-
-
-
-if __name__ == "__main__":
-    
-    start()
   
 
 

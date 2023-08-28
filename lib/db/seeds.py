@@ -1,4 +1,4 @@
-from models import Salon, Nail_Polish
+from models import Salon, Nail_Polish, Place_Order
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from faker import Faker
@@ -11,6 +11,7 @@ session = Session()
 
 session.query(Salon).delete()
 session.query(Nail_Polish).delete()
+session.query(Place_Order).delete()
 
 inventory = [
     Salon(product="acetone(galon)", price="$10.99", quantity=12),
@@ -197,6 +198,13 @@ nail_polishes = [
 
 session.bulk_save_objects(nail_polishes)
 
+
+# place_orders = [
+#     Place_Order(product_id=1, quantity=5),
+#     Place_Order(product_id=2, quantity=3),
+# ]
+
+# session.bulk_save_objects(place_orders)
 session.commit()
 
 

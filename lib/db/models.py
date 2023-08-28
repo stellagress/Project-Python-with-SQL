@@ -12,6 +12,7 @@ class Salon(Base):
     price = Column(String)
     quantity = Column(Integer)
 
+
     nail_polishes = relationship("Nail_Polish", backref="salon")
 
 
@@ -45,6 +46,24 @@ class Nail_Polish(Base):
         + f"color={self.color}," \
         + f"price={self.price}" \
         + ">"
+
+
+
+class Place_Order(Base):
+    __tablename__ = "place_order"
+    id = Column(Integer, primary_key = True)
+    product_id = Column(Integer, ForeignKey("inventory.id"))
+    quantity = Column(Integer)
+
+    product = relationship("Salon", backref="orders")
+
+
+    def __repr__(self):
+        return f"\n<Place_Order " \
+            + f"id={self.id}," \
+            + f"product_id={self.product_id}," \
+            + f"quantity={self.quantity}" \
+            + ">"
       
 
 

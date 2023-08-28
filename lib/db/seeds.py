@@ -1,3 +1,4 @@
+# SQLAlchemy modules 
 from models import Salon, Nail_Polish, Place_Order
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker

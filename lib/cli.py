@@ -140,7 +140,7 @@ def place_order():
             print("invalid selection")
 
     else:
-        print(f"Product {product_name} is not an authorized product to order.")
+        print(f"Product {red(product_name)} is not an authorized product to order.")
 
 
 # Entry point for the script

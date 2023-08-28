@@ -12,11 +12,11 @@ Nail Salon Inventory Management System is a Python application designed to view 
     * datetime
 
 ## Installation Instructions
-Please follow steps for installation:
+Please follow steps to start:
 1. Fork and Clone repository to your local machine
 2. cd into directory and open file
 3. Install required Python packages:
-* pipenv --python 3.8.13
+* pipenv --python3 
 * pipenv install alembic
 4. Run cli.py in terminal 
 
@@ -41,6 +41,10 @@ Please follow steps for installation:
 ## Contributor's Guide
 Contributions are welcomed through forking and submitting pull requests.
 
+
 ## License
 This project is licensed under the MIT License. See the 'LICENSE' file for more information.
+
+
+
 

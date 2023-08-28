@@ -28,11 +28,6 @@ def start():
     print("----------------- NAIL SALON - RESTRICTED PORTAL -----------------")
     print("\n")
 
-    # Create a menu with options
-    # options = ["1. View Current Inventory", "2. Update Inventory", "3. Place order", "4. Exit"]
-    # terminal_menu = TerminalMenu(options)
-    # menu_entry = terminal_menu.show()
-
 
     # Define menu options using dictionaries
     options = [
@@ -44,8 +39,13 @@ def start():
     terminal_menu = TerminalMenu([option["label"] for option in options])
     menu_entry = terminal_menu.show()
 
-    
 
+    # Create a menu with options
+    # options = ["1. View Current Inventory", "2. Update Inventory", "3. Place order", "4. Exit"]
+    # terminal_menu = TerminalMenu(options)
+    # menu_entry = terminal_menu.show()
+
+    
     # conditional based on user's menu entry option
     if menu_entry == 0:
         view_current_inventory()

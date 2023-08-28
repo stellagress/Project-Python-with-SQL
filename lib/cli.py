@@ -25,7 +25,7 @@ def start():
     # for _ in range(3):
     print("\n")
 
-    print("----------------- MARILYN'S NAIL SALON - RESTRICTED PORTAL -----------------")
+    print("----------------- NAIL SALON - RESTRICTED PORTAL -----------------")
 
     print("\n")
 

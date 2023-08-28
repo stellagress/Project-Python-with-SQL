@@ -1,4 +1,4 @@
-from db.models import Salon, Nail_Polish
+from db.models import Salon, Nail_Polish, Place_Order
 from simple_term_menu import TerminalMenu
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -40,6 +40,8 @@ def start():
     elif menu_entry == 2:
         place_order()
         
+
+
 
 
 def view_current_inventory():
@@ -87,6 +89,8 @@ def update_inventory():
 
 
 
+
+
 def place_order():
     products = session.query(Salon.product).all()
     print("\n".join([f"{product[0]}" for product in products]))
@@ -101,7 +105,15 @@ def place_order():
             digits = "0123456789"
             order_number = ''.join(random.choice(letters) for _ in range(3)) + ''.join(random.choice(digits) for _ in range(5))
             print(f"Order {order_number} placed")
-        if place_order_input == 'n':
+
+
+            # Create a new Place_Order instance and add it to the database
+            new_order = Place_Order(product_id=salon.id, quantity=quantity, order_number=order_number)
+            session.add(new_order)
+            session.commit()
+            print("Order saved to the database.")
+
+        elif place_order_input == 'n':
             place_order()
         else:
             print("invalid selection")

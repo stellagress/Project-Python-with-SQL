@@ -54,6 +54,7 @@ class Place_Order(Base):
     id = Column(Integer, primary_key = True)
     product_id = Column(Integer, ForeignKey("inventory.id"))
     quantity = Column(Integer)
+    order_number = Column(String, unique=True)
 
     product = relationship("Salon", backref="orders")
 
@@ -62,7 +63,8 @@ class Place_Order(Base):
         return f"\n<Place_Order " \
             + f"id={self.id}," \
             + f"product_id={self.product_id}," \
-            + f"quantity={self.quantity}" \
+            + f"quantity={self.quantity}," \
+            + f"order_number={self.order_number}" \
             + ">"
       
 

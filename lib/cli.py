@@ -3,6 +3,8 @@ from simple_term_menu import TerminalMenu
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from prettycli import red
+import random
+
 
 
 
@@ -95,23 +97,15 @@ def place_order():
         quantity = int(input(f"How many units of {product_name} would you like to order? "))
         place_order_input = input(f"Are you sure you want to order {quantity} of {product_name}? y/n ")
         if place_order_input == 'y':
-            print("Order being placed")
+            letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            digits = "0123456789"
+            order_number = ''.join(random.choice(letters) for _ in range(3)) + ''.join(random.choice(digits) for _ in range(5))
+            print(f"Order {order_number} placed")
         if place_order_input == 'n':
             place_order()
         else:
             print("invalid selection")
-        # if quantity > salon.quantity:
-        #     print("Insufficient quantity in inventory.")
-        # else:
-        #     # Create a new order record
-        #     order = PlaceOrder(product_id=salon.id, quantity=quantity)
-        #     session.add(order)
 
-        #     # Update the inventory
-        #     salon.quantity -= quantity
-
-        #     session.commit()
-        #     print(f"Order placed for {quantity} units of {product_name}.")
     else:
         print(f"Product {product_name} is not an authorized product to order.")
 

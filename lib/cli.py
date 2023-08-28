@@ -23,7 +23,7 @@ def start():
     # for _ in range(3):
     print("\n")
 
-    print("----------------- MARILYN'S NAIL SALON - RESTRICTED PORTAL-----------------")
+    print("----------------- MARILYN'S NAIL SALON - RESTRICTED PORTAL -----------------")
 
     print("\n")
 
@@ -86,7 +86,34 @@ def update_inventory():
 
 
 def place_order():
-    print("placing order")
+    products = session.query(Salon.product).all()
+    print("\n".join([f"{product[0]}" for product in products]))
+    product_name = input("Enter the name of the product to order: ")
+    salon = session.query(Salon).filter_by(product=product_name).first()
+
+    if salon:
+        quantity = int(input(f"How many units of {product_name} would you like to order? "))
+        place_order_input = input(f"Are you sure you want to order {quantity} of {product_name}? y/n ")
+        if place_order_input == 'y':
+            print("Order being placed")
+        if place_order_input == 'n':
+            place_order()
+        else:
+            print("invalid selection")
+        # if quantity > salon.quantity:
+        #     print("Insufficient quantity in inventory.")
+        # else:
+        #     # Create a new order record
+        #     order = PlaceOrder(product_id=salon.id, quantity=quantity)
+        #     session.add(order)
+
+        #     # Update the inventory
+        #     salon.quantity -= quantity
+
+        #     session.commit()
+        #     print(f"Order placed for {quantity} units of {product_name}.")
+    else:
+        print(f"Product {product_name} is not an authorized product to order.")
 
 
 

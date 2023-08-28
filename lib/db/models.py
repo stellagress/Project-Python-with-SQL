@@ -11,6 +11,7 @@ class Salon(Base):
     product = Column(String, unique=True)
     price = Column(String)
     quantity = Column(Integer)
+    unit = Column(String)
 
 
     nail_polishes = relationship("Nail_Polish", backref="salon")
@@ -21,7 +22,8 @@ class Salon(Base):
         + f"id={self.id}," \
         + f"product={self.product}," \
         + f"price={self.price}," \
-        + f"quantity={self.quantity}"
+        + f"quantity={self.quantity}," \
+        + f"unit={self.unit}" \
         + ">" 
 
 

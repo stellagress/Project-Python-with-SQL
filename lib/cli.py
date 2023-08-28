@@ -47,7 +47,7 @@ def start():
 def view_current_inventory():
     inventory_items = session.query(Salon).all()
     for item in inventory_items:
-        print(f"Product: {item.product} | Price: {item.price} | Quantity: {item.quantity}")
+        print(f"Product: {item.product} | Unit: {item.unit} | Price: {item.price} | Quantity: {item.quantity}")
 
 
 

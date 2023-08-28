@@ -7,32 +7,33 @@ import random, datetime
 
 
 
-
+# Create a SQLAlchemy engine to connect to the SQLite database
 engine = create_engine('sqlite:///db/data.db')
+# Create a session to interact with the database
 Session = sessionmaker(bind=engine)
 session = Session()
 
 
 
-
+# Define the start of the application
 def start():
+    # ASCII art & main page layout
     print("     _       _           _            _")
     print("    / \\   __| |_ __ ___ (_)_ __      / \\   ___ ___ ___  ___ ___")
     print("   / _ \\ / _` | '_ ` _ \\| | '_ \\    / _ \\ / __/ __/ _ \\/ __/ __|")
     print("  / ___ \\ (_| | | | | | | | | | |  / ___ \\ (_| (_|  __/\\__ \\__ \\")
     print(" /_/   \\_\\__,_|_| |_| |_|_|_| |_| /_/   \\_\\___\\___\\___||___/___/")
 
-    # for _ in range(3):
     print("\n")
-
     print("----------------- NAIL SALON - RESTRICTED PORTAL -----------------")
-
     print("\n")
 
+    # Create a menu with options
     options = ["1. View Current Inventory", "2. Update Inventory", "3. Place order", "4. Exit"]
     terminal_menu = TerminalMenu(options)
     menu_entry = terminal_menu.show()
     
+    # conditional based on user's menu entry option
     if menu_entry == 0:
         view_current_inventory()
     elif menu_entry == 1:
@@ -43,7 +44,7 @@ def start():
 
 
 
-
+# Function to view the current inventory
 def view_current_inventory():
     inventory_items = session.query(Salon).all()
     for item in inventory_items:
@@ -51,10 +52,13 @@ def view_current_inventory():
 
 
 
-
+# Function to update the inventory, interactive questions and a user's follow through 
 def update_inventory():
+
+    # Asks the user whether to add or delete inventory
     update_inventory_input_1 = input("Would you like to add or delete inventory? ")
     
+    # Handles adding inventory by updating quantities
     if update_inventory_input_1 == "add":
         products = session.query(Salon.product).all()
         print("\n".join([f"{product[0]}" for product in products]))
@@ -70,6 +74,7 @@ def update_inventory():
         else:
             print(f"Product {product_name} not found in inventory.")
 
+    # Handles deleting inventory by updating quantities
     elif update_inventory_input_1 == "delete":
         products = session.query(Salon.product).all()
         print("\n".join([f"{product[0]}" for product in products]))
@@ -84,13 +89,14 @@ def update_inventory():
             print(f"Updated quantity for {product_name}: {salon.quantity}")
         else:
             print(f"Product {product_name} not found in inventory.")
+    # Warns user of invalid selection
     else:
         print(red("invalid selection"))
 
 
 
 
-
+# Function to place an order
 def place_order():
     products = session.query(Salon.product).all()
     print("\n".join([f"{product[0]}" for product in products]))
@@ -124,7 +130,7 @@ def place_order():
         print(f"Product {product_name} is not an authorized product to order.")
 
 
-
+# Entry point for the script
 if __name__ == "__main__":
     
     start()

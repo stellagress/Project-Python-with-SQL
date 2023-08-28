@@ -1,18 +1,23 @@
 from models import Salon, Nail_Polish, Place_Order
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from faker import Faker
 import random
 
-fake = Faker()
+
+
+# Create a SQLAlchemy engine to connect to the SQLite database
 engine = create_engine('sqlite:///data.db')
+
+# Create a session to interact with the database
 Session = sessionmaker(bind=engine)
 session = Session()
 
+# Clear existing data from tables
 session.query(Salon).delete()
 session.query(Nail_Polish).delete()
 session.query(Place_Order).delete()
 
+# Define a list of items in inventory
 inventory = [
     Salon(product="acetone", unit="galon", price="$10.99", quantity=12),
     Salon(product="base coat", unit="unit", price="$5", quantity=11),
@@ -28,12 +33,13 @@ inventory = [
     Salon(product="towel", unit="pack of 24", price="$49.99", quantity=5)
 ]
 
+# Bulk insert the inventory items into the database
 session.bulk_save_objects(inventory)
 
-# salon = session.query(Salon).all()
+# Query for a specific salon inventory item
 salon = session.query(Salon).filter_by(product="nail polish").first()
 
-
+# Define a list of nail polish products
 nail_polishes = [
 
     # Regular - Colorama
@@ -196,19 +202,22 @@ nail_polishes = [
 
 ]
 
+# Bulk insert the nail polish products into the database
 session.bulk_save_objects(nail_polishes)
 
-
+# Define a list of place orders
 place_orders = [
     Place_Order(product_id=1, quantity=5, order_number='AHL98712', date_order_placed='placeholder'),
     Place_Order(product_id=2, quantity=3, order_number='EYU85263', date_order_placed='placeholder'),
 ]
 
+# Bulk insert the place orders into the database
 session.bulk_save_objects(place_orders)
+
+# Commit the changes to the database
 session.commit()
 
 
-
-import ipdb; ipdb.set_trace()
-
+# debugging tool
+# import ipdb; ipdb.set_trace()
 
